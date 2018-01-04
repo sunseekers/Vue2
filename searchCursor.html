@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>自定义筛选或者搜索</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" type="text/css" href="css/cursor.css">
+</head>
+<body>
+    <div id='cursor'>
+    	<input type="text" placeholder="搜索 课程 / 问答" name="search" id='search' autofocus v-model='searchCursor'/>
+    	<my-cursor :data='course' :filter-key='searchCursor'>
+			</my-cursor>
+    </div>
+    <script type="text/javascript" src='js/vue.min.js'></script>
+    <script type="text/javascript">
+    	const myCursor={
+    		props:{
+	    		data:Array,
+	    		filterKey:String
+    		},
+    		template:`
+					<div>
+				  		<a :href="entry.url" v-for="entry in filteredData">
+							<div class="course1">
+								<div class='course1Img'></div>
+								<div class="intruduce">
+								<p>{{entry.course}}</p>
+									<p>{{entry.change}}</p>
+								<span>{{entry.r1}}</span>
+									<span>{{entry.r2}}</span>
+								<p>{{entry.study}}</p>
+								</div>
+							</div>
+						</a>
+					</div>
+    		`
+    	};
+    	Vue.component('my-cursor',{
+    			props:{
+	    		data:Array,
+	    		filterKey:String
+    		},
+    		template:`
+					<div>
+				  		<div v-for="entry in filteredData">
+							<div class="course1">
+								<div class='course1Img'></div>
+								<div class="intruduce">
+								<p>{{entry.course}}</p>
+									<p>{{entry.change}}</p>
+								<span>{{entry.r1}}</span>
+									<span>{{entry.r2}}</span>
+								<p>{{entry.study}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+    		`,
+    			computed:{
+    			//es6写法，也可以写成filteredData:function()
+    			/*
+    			1.刚开始filterKey为空，通过所有的数据，数据全部展示在页面
+    			2.当你在搜索框开始输入数据时，就进行数据的过滤filter，在筛选只要有符合的数据就展示
+    			Object.keys()->获取属性数组，Array.some()->只要有一个符合的就返回，String.indexOf()->找到匹配的就返回
+    			*/
+    			filteredData(){
+  				var filterKey=this.filterKey;
+  				var data=this.data;
+  				//通过测试的 name
+  				if(filterKey){
+  					data=data.filter(function(row){
+	  						return Object.keys(row).some(function(key){
+	  							console.log(filterKey);
+	  						return String(row[key]).indexOf(filterKey)>-1;
+	  					})
+  				})
+  				}
+  				return data;
+  			}
+    		}
+    	})
+    	new Vue({
+    		el:'#cursor',
+    		data:{
+    			searchCursor:'',
+    			course:[
+				{
+					course: 'JavaScript',
+					change: '精选课程，和我们一起进阶HTML/CSS，共发布6个课程，等你来挑战',
+					r1: 'HTML1',
+					r2: '网页制作',
+					study: '已经有891名学生在这里学习',
+				},
+				{
+					course: 'Node.js',
+					change: '精选课程，和我们一起零基础入门HTML/CSS，共发布8个课程，等你来挑战',
+					r1: 'HTML',
+					r2: '网页制作',
+					study: '已经有891名学生在这里学习',
+				},
+				{
+					course: 'HTML5/CSS3',
+					change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+					r1: 'HTML',
+					r2: '网页制作',
+					study: '已经有891名学生在这里学习',
+				},
+				{
+					course: 'Vue',
+					change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+					r1: 'HTML',
+					r2: '网页制作',
+					study: '已经有891名学生在这里学习',
+				},
+			]
+    		},
+    	})
+    </script>
+</body>
+
+</html>

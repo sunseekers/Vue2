@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>swiper</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="css/vue-swipe.css" rel="stylesheet">
+<style type="text/css">
+	.my-swipe {
+  height: 200px;
+  color: #000;
+  font-size: 30px;
+  text-align: center;
+}
+
+.slide{
+	width: 100%;
+	height: 300px;
+	background: url(img/ban.jpg);
+	background-size: 100% 100%; 
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <div id='app'>
+    <swipe class="my-swipe">
+		  <swipe-item class="slide"></swipe-item>
+		  <swipe-item class="slide"></swipe-item>
+		  <swipe-item class="slide"></swipe-item>
+		</swipe>
+		<p>在vue中引入swipe轮播插件</p>
+    </div>
+</body>
+<script type="text/javascript" src='js/vue.min.js'></script>
+<script type="text/javascript" src='js/vue-swipe.js'></script>
+<script type="text/javascript">
+  const vueSwipe = VueSwipe.Swipe;
+	const vueSwipeItem = VueSwipe.SwipeItem;
+	new Vue({
+	  el: '#app',
+	  components: {
+	    'swipe': vueSwipe,
+	    'swipe-item': vueSwipeItem
+	  }
+});
+</script>
+</html>

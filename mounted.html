@@ -46,7 +46,14 @@
     			console.log('=即将更新渲染=');
     			let name=this.$refs.app.innerHTML;
     			console.log('name:'+name);
-    		}
+    		},
+             beforeDestroy(){
+                
+               console.log('销毁之前');
+             },
+             destroyed(){
+               console.log('销毁成功');
+             }
     	})
     </script>
 </body>
