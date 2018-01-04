@@ -6,7 +6,7 @@
 
 当我们在登录框输入内容之后，在切换到注册框的时候，发现账号和密码依然存在。这就很好的的解释了 vue 是如何复用已有的元素的；
 
-[查看源码]()
+[查看源码](https://github.com/sunseekers/Vue/blob/master/register.html)
 
 如果我们不想复用已有的元素，即切换到注册的时候，清空账号和密码，那 <b> key </b>就派上用场了，在标签内加入 key="username-input" 和 key="username-password" ,就清除复用了，此时 Vue 元素就是重头开始渲染
 
@@ -39,8 +39,7 @@ v-show : 相当于 css 属性的 display ；适合频繁的切换
 </table>
 //自定义组件 <my-row> 为有效的内容
 ```
-自定义组件中父组件通过 props 属性将数据传递给子组件，反过来子组件通过 $emit('event') 触发父组件，进而进行修改父组件的数据
-
 <img src='img/is.png'/>
-
-[查看源码]()
+[查看源码](https://github.com/sunseekers/Vue/blob/master/is.html)
+自定义组件中父组件通过 props 属性将数据传递给子组件，反过来子组件通过 $emit('event') 触发父组件，进而进行修改父组件的数据
+[查看源码](https://github.com/sunseekers/Vue/blob/master/emit.html)
