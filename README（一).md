@@ -40,6 +40,9 @@ v-show : 相当于 css 属性的 display ；适合频繁的切换
 //自定义组件 <my-row> 为有效的内容
 ```
 <img src='img/is.png'/>
+
 [查看源码](https://github.com/sunseekers/Vue/blob/master/is.html)
+
 自定义组件中父组件通过 props 属性将数据传递给子组件，反过来子组件通过 $emit('event') 触发父组件，进而进行修改父组件的数据
+
 [查看源码](https://github.com/sunseekers/Vue/blob/master/emit.html)
