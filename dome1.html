@@ -80,8 +80,9 @@ div{
 </body>
 <script type="text/javascript" src='js/vue.min.js'></script>
 <script type="text/javascript">
-	new Vue({
+	var vm=new Vue({
 		el:'#app',
+        jjjj:'oooo',
 		data:{
 			//默认数据
 			items:
@@ -116,5 +117,6 @@ div{
 			}
 		}
 	})
+    console.log(vm.$options.jjjj);
 </script>
 </html>

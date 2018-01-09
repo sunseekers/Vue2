@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>vue-router</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script type="text/javascript" src='js/vue.min.js'></script>
+<script type="text/javascript" src='js/vue-router.js'></script>
+</head>
+<body>
+    <div id='router'>
+    	<h1>Hello App !</h1>
+    	<p>
+    		<router-link to='/home'>Go to Home</router-link>
+    		<router-link to='/new'>Go to New</router-link>
+    	</p>
+    	<router-view></router-view>
+    </div>
+    <script type="text/javascript">
+    	//1.创建组件
+    	const Home={
+    		template:`<span>我是主页</span>`
+    	};
+    	const News={
+    		template:`<span>我是新闻</span>`
+    	};
+    	//2.配置路由
+    	const routes=[
+    			{
+    				path:'/home',component:Home
+    			},
+    			{
+    				path:'/new',component:News
+    			},
+    			//重定向.相当于404，
+    			{
+    				path:'*',redirect:'/home'
+    			}
+    	];
+    	//3.生成路由实例
+    	const router=new VueRouter({
+    		routes
+    	});
+  new Vue({
+  	el:'#router',
+  	router
+  })
+    </script>
+</body>
+</html>

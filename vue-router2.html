@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>嵌套路由</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script type="text/javascript" src='js/vue.min.js'></script>
+<script type="text/javascript" src='js/vue-router.js'></script>
+</head>
+<body>
+    <div id='router'>
+    	<router-link to='/home'>Go to Home</router-link>
+    		<router-link to='/user'>Go to User</router-link>
+    	<router-view></router-view>
+    </div>
+    <script type="text/javascript">
+    	const Home={
+    		template:`<span>我是主页</span>`
+    	};
+    	const username={
+    		//$route.params: 表示冒号后面的一个对象
+    		template:`<span>我是{{$route.params}}</span>`
+    	};
+    	const News={
+    		template:`<div>
+    		<h3>我是用户</h3>
+				<ul><li><router-link to='/user/sunseekers'>用户信息</router-link></li><ul>
+				<router-view></router-view>
+    		</div>`
+    	};
+    	const routes=[
+    	{path:'/home',component:Home},
+    	{
+    		path:'/user',component:News,
+    		//配置子路由或者说是嵌套路由，只需要在嵌套或者父路由里面加一个 
+    		//children[{path:'',component:}]就好，很形象，很好记
+    		children:[
+    		{path:':username',component:username}
+    		]},
+    	{path:'*',redirect:'/home'}
+    	];
+    	const router=new VueRouter({routes});
+    	new Vue({
+    		el:'#router',
+    		router
+    	})
+    </script>
+</body>
+</html>
