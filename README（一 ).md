@@ -85,7 +85,7 @@ slot: 作用就是占个位置；
 
 <img src='img/slot1.png'/>
 
-[源码地址]()
+[源码地址](https://github.com/sunseekers/Vue/blob/master/slot.html)
 
 <h3 style='color:rgb(230,3,135);'> axios </h3>
 在 vue2.0 中官方推荐使用 axios 做数据交互；不在推荐使用以前的 vue-resourse ；其实做交互她们本质上是一样的 vue-resourse 怎么用， axios 也可以那样用；
