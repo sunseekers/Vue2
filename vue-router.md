@@ -11,6 +11,8 @@
 
 <img src='img/router.jpg'/>
 
+[查看源码](https://github.com/sunseekers/Vue/blob/master/vue-router.html)
+
 <h3 style='color:rgb(230,3,135);'>嵌套的 vue-router </h3>
 当我们想在在路由里面再嵌套路由的时候要怎么办呐？
 
@@ -22,7 +24,7 @@ $route.params： 表示当前的参数即冒号后面的东西
 
 /detail/:id/age/:age  --->$route.params 表示  id 和 age 组成的对象
 
-[查看源码]()
+[查看源码](https://github.com/sunseekers/Vue/blob/master/vue-router2.html)
 
 <h3 style='color:rgb(230,3,135);'>路由的实例方法 </h3>
 
@@ -33,4 +35,4 @@ router.replace({path:'news'}): 替换路由，历史记录里面没有添加记�
 <img src='img/router.gif'/>
 
 引入了过渡动画 ，页面效果看起来好看多了，哈哈哈哈
-[查看源码]()
+[查看源码](https://github.com/sunseekers/Vue/blob/master/routerTransform.html)
