@@ -17,6 +17,7 @@ import axios from 'axios'
 		methods:{
 			get(){
 				axios.get('index.html').then(function(res){
+				console.log(this.msg);
 					this.msg=res.data;
 				}.bind(this)).catch(function(err){
 				  console.log(err);
