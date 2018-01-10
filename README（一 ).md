@@ -147,7 +147,8 @@ static放不会变动的文件 assets放可能会变动的文件。
 
 上面引入了 <b>饿了么写的 ElementUI 组件</b>，和在一个组件里面引用了另一个组件然后在渲染到页面中去
 
-[vue-cli]()主要看 src 里面的内容
+
+[vue-cli](https://github.com/sunseekers/Vue/tree/master/online)主要看 src 里面的内容
 
 
 
