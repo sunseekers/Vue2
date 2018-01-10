@@ -1,4 +1,4 @@
-<h1 style='color:rgb(230,3,135);'>2018 我所了解的 Vue 知识大全 补漏（二）</h1>
+<h1 style='color:rgb(230,3,135);'>2018 我所了解的 Vue 知识大全 （二）</h1>
 
 <i>在前面的一篇文章中还漏掉了几个，现在把它补全，我发现还是要多练习才行，对于语法还有 API 的了解才更加深刻，结合小 demo 看，所有的东西都变得通俗易懂啦</i>
 
@@ -9,7 +9,7 @@
 
 <img src='img/is.gif'/>
 
-当我们在登录框输入内容之后，在切换到注册框的时候，发现账号和密码依然存在。这就很好的的解释了 vue 是如何复用已有的元素的；
+当我们在登录框输入内容之后，在切换到注册框的时候，发现账号和密码依然存在。不用重新输入，这就很好的的解释了 vue 是如何复用已有的元素的；
 
 <i>被复用的组件实例,意味着组件的生命周期钩子不会再被调用。 我们可以用 watch（监测变化）来对响应做出变化</i>
 
@@ -85,7 +85,7 @@ slot: 作用就是占个位置；
 
 <img src='img/slot1.png'/>
 
-[源码地址](https://github.com/sunseekers/Vue/blob/master/slot.html)
+[源码地址]()
 
 <h3 style='color:rgb(230,3,135);'> axios </h3>
 在 vue2.0 中官方推荐使用 axios 做数据交互；不在推荐使用以前的 vue-resourse ；其实做交互她们本质上是一样的 vue-resourse 怎么用， axios 也可以那样用；
@@ -94,13 +94,60 @@ slot: 作用就是占个位置；
 
 [详情请参考axios](https://github.com/axios/axios)
 
-我采用的是 vue-cli 手脚架搭的； vue-cli 搭建的教程挺多的而且也简单，我就不去详细介绍啦！vue-cli 是基于 webpack 构建， vue-loader 能够解析 后缀名 .vue ; 在用 vue-cli 的时候我们用的比较多； 
+<h3 style='color:rgb(230,3,135);'> vue-cli 目录结构 </h3>
+上面我采用的是 vue-cli 手脚架搭的； 用axios 实现数据交互，vue-cli 搭建的教程挺多的流程也简单，我就不去详细介绍啦！vue-cli 是基于 webpack 构建， vue-loader 能够解析 后缀名 .vue ; 在用 vue-cli 的时候我们用的比较多； 
 
 <img src='img/vue-loader.png'/>
 
 [vue-loader](https://vue-loader.vuejs.org/zh-cn/)
 
 [vue-cli](https://github.com/vuejs/vue-cli)
+
+<span style='color:rgb(230,3,135);'> vue-cli 目录结构 </span>
+
+```python
+|-- build                            // 项目构建(webpack)相关代码
+|   |-- build.js                     // 生产环境构建代码
+|   |-- check-version.js             // 检查node、npm等版本
+|   |-- dev-client.js                // 热重载相关
+|   |-- dev-server.js                // 构建本地服务器
+|   |-- utils.js                     // 构建工具相关
+|   |-- vue-loader.conf.js           // vue-loader基础配置
+|   |-- webpack.base.conf.js         // webpack基础配置
+|   |-- webpack.dev.conf.js          // webpack开发环境配置
+|   |-- webpack.prod.conf.js         // webpack生产环境配置
+|-- config                           // 项目开发环境配置
+|   |-- dev.env.js                   // 开发环境变量
+|   |-- index.js                     // 项目一些配置变量
+|   |-- prod.env.js                  // 生产环境变量
+|   |-- test.env.js                  // 测试环境变量
+|-- node_modules                     // 存放 npm 下载的模块
+|-- src   这是我们经常会用的一个文件夹  // 源码目录
+|   |-- assets                     // 存放静态资源文件会被webpack处理解析为模块依赖
+|   |-- components                     // vue公共组件
+|   |-- store                          // vuex的状态管理
+|   |-- router                         // 路由管理文件
+|   |-- App.vue                        // 页面入口文件
+|   |-- main.js                        // 程序入口文件，加载各种公共组件
+|-- static                           // 静态文件，比如一些图片，json数据等
+|-- test                             // 测试文件
+|-- .babelrc                         // ES6语法编译配置
+|-- .editorconfig                    // 定义代码格式
+|-- .gitignore                       // git上传需要忽略的文件格式
+|-- README.md                        // 项目说明
+|-- favicon.ico 
+|-- index.html                       // 入口页面
+|-- package.json                     // 项目基本信息
+
+static放不会变动的文件 assets放可能会变动的文件。
+```
+用 vue-cli 构建一个简单的页面很简单，这就是一个简单的 vue-cli 构建的文件；
+
+<img src='img/vue-cli.png'/>
+
+上面引入了 <b>饿了么写的 ElementUI 组件</b>，和在一个组件里面引用了另一个组件然后在渲染到页面中去
+
+[vue-cli]()主要看 src 里面的内容
 
 
 
