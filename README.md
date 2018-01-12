@@ -51,3 +51,5 @@ Vue ，React ，Angular 三大主流框架，最后我选择学习 Vue ，接触
 
 
 [详细 style-guide 请参看官网](https://cn.vuejs.org/v2/style-guide/)
+
+学习讨论 vue 可以加我微信 1390639401，18级应届毕业生，目前真正找工作有合适的可以推荐 ，哈哈哈
