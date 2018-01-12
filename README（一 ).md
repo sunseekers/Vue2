@@ -195,7 +195,7 @@ vuex 提供两个特别有用的方法
  
 <img src='img/vuex2.png'/>
  
- 代码地址
+ [代码地址](https://github.com/sunseekers/Vue/tree/master/online/vuexsrc/src)
  
  [详情请参考文档](https://vuex.vuejs.org/zh-cn/installation.html)
  
