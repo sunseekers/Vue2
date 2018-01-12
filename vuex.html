@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>vuex</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+	//初始化 state对象 和一些 mutation
+const store=new Vuex.Store({
+	state:{
+		count:0
+	},
+	mutation:{
+		increment(state){
+			state.count++
+		}
+	}
+})
+</script>
+</html>
