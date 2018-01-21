@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>wacth 的使用</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <div id='app'>
+    	<input type="text" v-model='searchQuery'>
+    	<p v-if='isSearch' >search...</p>
+    	<div v-else >
+    		<ul>
+						<li v-for='(item,index) in items' v-cloak>{{ item }}</li>
+    		</ul>
+    	</div>
+    </div>
+    <script type="text/javascript" src='js/vue.min.js'></script>
+    <script>
+    	let vm=new Vue({
+    		el:"#app",
+    		data:{
+    			searchQuery:'search',
+    			isSearch:true,
+    			items:[]
+    		},
+    		watch:{
+    			searchQuery:function(query){
+    				this.isSearch=false;
+    				this.items.push(query);
+    			}
+
+    		}
+    	});
+    	//$watch
+    	vm.$watch('searchQuery',function(){
+    		alert(1);
+    	})
+    </script>
+</body>
+</html>
