@@ -1,0 +1,31 @@
+.cursorWrap{
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: #eee;
+}
+.cursorcontent{
+	width: 980px;
+	margin: 0 auto;
+	padding-left: 80px;
+	color: #ACACAC;
+	background: #fff;
+	border: 1px #eee solid;
+	border-radius: 10px;
+}
+.msg{
+	padding-top: 20px;
+	width: 980px;
+	height: 400px;
+}
+.comp{
+	line-height: 60px;
+	font-size:26px;
+	color:rgba(102,102,102,1);
+}
+.comli li{
+	margin-left: 30px;
+	line-height:30px; 
+	font-size:16px;
+}
+.financing .comli a{ color: #ACACAC;; }

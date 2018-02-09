@@ -1,0 +1,152 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2017-11-15 11:59:22
+ * @version $Id$
+ */
+
+.course{
+	width: 960px;
+
+	margin: 0 auto;
+	overflow: hidden;
+}
+h1{
+	padding: 20px 0;
+	font-size: 20px;
+    font-weight: 200;
+    color: #07111b;
+}
+.moreCourse{
+	background: #eee;
+	width: 100%;
+	height: 520px;
+	padding: 0 calc(50% - 490px);
+}
+.rank{
+	width:322px;
+	height:420px; 
+	background:rgba(255,255,255,1);
+	margin-top: 12px;
+	float: left;
+	position: relative;
+	flex: 1;
+}
+.rank p{
+	position: absolute;
+	top: -50px;
+	color: #FF8A00;
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+.book{ padding: 20px; overflow: hidden;}
+.book li {
+	padding-left: 10px;
+	font-size: 16px;
+	line-height: 36px;
+}
+.book li span:nth-of-type(1){
+	width: 22px;
+	line-height: 22px;
+	display: inline-block;
+	background: #D2D2D2;
+	color: #fff;
+	text-align: center;
+}
+.more {
+	width: 100%;
+	height: 450px;
+	padding: 0 calc(50% - 490px);
+	overflow: hidden;
+}
+.message{
+	width: 440px;
+	height: 350px;
+	padding: 20px;
+	float: left;
+}
+.top{ padding-top: 20px;border-bottom: 1px #FF6868 solid; }
+.top span:nth-child(1){
+	font-size: 20px;
+	color: #454545;
+	line-height: 40px;
+}
+.top span:nth-child(2){
+	font-size: 16px;
+	color: #787878;
+	line-height: 40px;
+	float: right;
+}
+.message ul li span{
+	width:30px;
+	line-height:30px; 
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+}
+.message ul li{position: relative;padding: 26px 0;border-bottom: 1px #D2D2D2 solid;}
+.messageDiv{ float: left; padding-left: 20px;color: #787878;}
+.message ul li:nth-child(1){ height: 100px; }
+.messageDiv p:nth-child(1){
+	width:235px;
+	line-height:18px; 
+	font-size:18px;
+	color:rgba(120,120,120,1);
+	padding-bottom: 25px;
+}
+
+.message ul li .number,.message ul li .number1{
+	width: 40px;
+	display: inline-block;
+	color: #787878;
+	font-size: 12px;
+	float: right;
+	display: relative;
+	padding-left: 10px;
+}
+.message ul li .number1{
+	border-right: 1px #eee solid;
+	padding-right: 10px;
+}
+.message ul li .number:after{
+	content:"浏览数";
+	position: absolute;
+    top: 40px;
+    right: 0;
+}
+.messagep1{
+	position: absolute;
+    top: 70px;
+    left: 250px;
+    color: #787878;
+}
+.messagep{
+	position: absolute;
+    top: 30px;
+    left: 60px;
+    color: #787878;
+}
+.message ul li .number1:after{
+	content:"点赞数";
+	position: absolute;
+    top: 40px;
+    right: 60px;
+}
+.top1{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+.messageUl li .messages1{
+	color: #787878;
+	position: absolute;
+	top:60px;
+	left: 250px;
+}
+.messageUl li .messages{
+	color: #787878;
+	position: absolute;
+	top:20px;
+	left: 60px;
+}

@@ -1,0 +1,26 @@
+html{    overflow-x: hidden;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight:rgba(0,0,0,0);-webkit-text-size-adjust:none;overflow:-moz-scrollbars-vertical;}
+html,body,p,div,ul,ol,li,h1,h2,h3,h4,h5,input,textarea{ margin:0; padding:0;}
+a, a:active, a:link, a:visited { text-decoration:none; outline: none;}
+input:focus { outline: none; }
+input,button,select,textarea{outline:none;}
+textarea{resize:none;}
+ol,ul,li{ list-style: none;}
+img{ border: 0;vertical-align: middle;}
+.clearfix:after{content:"."; clear:both; height:0; visibility:hidden; display:block;}
+body{ font-size:12px; font-family: Helvetica,"微软雅黑"; background: #fff;}
+input[type="button"], input[type="submit"] {-webkit-appearance: none;}
+html,body{width: 100%;height: 100%;}
+.hide {display: none;}
+.fade{overflow: hidden;}
+li{ list-style: none;}
+a{ text-decoration: none;}
+img {display: block;}
+.vtc{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform:translate3d(-50%,-50%,0);
+	-webkit-transform:translate3d(-50%,-50%,0);
+}
+.lf{  float: left;}
+.rg{ float: right; }

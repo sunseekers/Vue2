@@ -1,0 +1,85 @@
+.cursorWrap{
+	width: 100%;
+	padding-top: 30px;
+	background: #eee;
+	padding-bottom: 30px;
+}
+.cursorcontent{
+	width: 980px;
+	margin: 0 auto;
+	padding-left: 80px;
+	color: #ACACAC;
+	background: #fff;
+	border: 1px #eee solid;
+	border-radius: 10px;
+}
+.study,.aim{
+	padding-top: 20px;
+	width: 980px;
+	height: 300px;
+}
+.studyL img{
+	width:265px;
+	height:246px; 
+	padding-bottom: 10px;
+	padding-right: 50px;
+}
+.studyL p{
+
+	line-height:24px; 
+	font-size:14px;
+	color:rgba(166,166,166,1);
+}
+.studyR p:nth-child(1){
+	padding: 25px 0;
+	width:480px;
+	line-height:30px; 
+	font-size:30px;
+	color:rgba(4,4,4,1);
+}
+.studyR p:nth-child(1) span{
+	width:40px;
+	line-height:16px; 
+	font-size:16px;
+	color:rgba(102,102,102,1);
+}
+.studyR p{
+	width:470px;
+	padding-top: 10px;
+	line-height:24px; 
+	font-size:14px;
+	color:rgba(172,172,172,1);
+}
+.studyR p span{
+	line-height: 22px;
+	margin: 5px;
+	padding: 5px;
+	font-size:12px;
+	border-radius: 10px;
+	display: inline-block;
+	background:rgba(240,240,240,1);
+}
+.comp{
+	line-height: 60px;
+	font-size:26px;
+	color:rgba(102,102,102,1);
+}
+.comli li{
+	margin-left: 30px;
+	line-height:30px; 
+	font-size:16px;
+}
+.data .comli a{ color: #54C15A ; }
+
+.button{
+	width:150px;
+	line-height:40px; 
+	margin-top: 25px;
+	border: none;
+	background:rgba(84,193,90,1);
+	border-radius: 20px ; 
+	font-size:20px;
+	text-align: center;
+	color:rgba(255,255,255,1);
+	cursor: pointer;
+}
