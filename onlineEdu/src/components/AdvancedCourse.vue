@@ -1,5 +1,5 @@
 <template>
-  <div class='my-cursor' :data='morecourse' :filter-key='searchQuery'>
+  <div class='my-cursor'>
     <a :href="entry.url" v-for="entry in filteredData">
       <div class="course1">
         <div class='course1Img'></div>
@@ -8,7 +8,7 @@
           <p>{{entry.change}}</p>
         <span>{{entry.r1}}</span>
           <span>{{entry.r2}}</span>
-        <p>{{entry.study}}</p>
+        <p>已经有 <b>{{entry.study}}</b> 名学生在这里学习</p>
         </div>
       </div>
     </a>
@@ -16,28 +16,32 @@
 </template>
 <script>
   export default{
-    data(){
-      return {
-      filteredData:[
-        {
-          course: 'jjL/CSS',
-          change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
-          r1: 'HTML',
-          r2: '网页制作',
-          study: '已经有891名学生在这里学习',
-          url:'cursor.html'
-        },
-        {
-          course: 'HTML/CSS',
-          change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
-          r1: 'HTML',
-          r2: '网页制作',
-          study: '已经有891名学生在这里学习',
-          url:'cursorContent.html'
+    props:{
+      data:{
+        type:Array,
+        default(){
+          return []
         }
-      ]
+      },
+      filterKey:{
+        type:String,
+        default:''
       }
+    },
+   computed:{
+    filteredData(){
+      let filterKey=this.filterKey&&this.filterKey.toLowerCase();
+      let data=this.data;
+      if(filterKey){
+        data=data.filter(function(row){
+          return Object.keys(row).some(function(ele){
+            return String(row[ele]).indexOf(filterKey)>-1;
+          })
+        })
+      }
+      return data;
     }
+   }
   }
 </script>
 <style  scoped>
@@ -78,7 +82,7 @@
   margin: 10px 0;
   border-radius: 15px;
   display: inline-block;
-  padding: 5px ;
+  padding: 5px 10px ;
 }
 .course1:hover{ box-shadow: 1px 1px 10px;}
 .course1:hover .intruduce p:nth-child(1){ color: #1ad1a3;}

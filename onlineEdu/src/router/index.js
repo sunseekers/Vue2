@@ -12,22 +12,22 @@ export default new Router({
     {
       path: '/',
       name: '首页',
-      component: Home
+      component: resolve=>require(['../components/Home.vue'],resolve)
     },
     {
       path: '/AllCursor',
       name: '课程',
-      component: AllCursor
+      component: resolve=>require(['../components/AllCursor.vue'],resolve)
     },
     {
       path: '/CursorContent',
       name: '课程',
-      component: CursorContent
+      component: resolve=>require(['../components/CursorContent.vue'],resolve)
     },
     {
       path: '/Message',
       name: '资讯',
-      component: Message
+      component: resolve=>require(['../components/Message.vue'],resolve)
     },
     {
       path:'*',redirect:'/'

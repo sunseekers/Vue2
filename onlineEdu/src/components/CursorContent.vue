@@ -5,9 +5,9 @@
       <div class="cursorcontent">
         <div class="study">
           <div class="studyL lf">
-            <img src='img/3.png' alt="抽奖转盘"/>
+            <img src='../assets/img/3.png' alt="抽奖转盘"/>
             <p>难度：中等 时间：一天</p>
-            <p>大约有1200人学习了这门课程</p>
+            <p>大约有 <b>1200</b> 人学习了这门课程</p>
           </div>
           <div class='studyR lf'>
             <p>基于CSS3实现抽奖大转盘 <span class="rg">中级</span></p>

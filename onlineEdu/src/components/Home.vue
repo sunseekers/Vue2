@@ -3,11 +3,11 @@
     <Slider></Slider>
     <div class="course" id='basis-courses'>
       <h1>基础课程</h1>
-      <MyCursor></MyCursor>
+      <MyCursor :data='mycursor' :filter-key='searchQuery'></MyCursor>
     </div>
     <div class="moreCourse" id='MoreCourse'>
       <h1>更多热门课程</h1>
-      <AdvancedCourse></AdvancedCourse>
+      <AdvancedCourse :data='morecourse' :filter-key='searchQuery'></AdvancedCourse>
       <div class="rank ">
         <p>经典图书排行榜</p>
         <ul class="book">
@@ -124,11 +124,85 @@
   import MyCursor from './MyCursor.vue'
   import AdvancedCourse from './AdvancedCourse.vue'
 	export default {
+
+    data(){
+      return {
+        searchQuery:'',
+        mycursor:[
+          {
+            course: 'jjL/CSS',
+            change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+            r1: 'HTML',
+            r2: '网页制作',
+            study: '891',
+            url:'CursorContent'
+          },
+          {
+            course: 'HTML/CSS',
+            change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+            r1: 'HTML',
+            r2: '网页制作',
+            study: '891',
+            url:'cursorContent.html'
+          },
+          {
+            course: 'HTML/CSS',
+            change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+            r1: 'HTML',
+            r2: '网页制作',
+            study: '891',
+            url:'cursorContent.html'
+          },
+          {
+            course: 'HTML/CSS',
+            change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+            r1: 'HTML',
+            r2: '网页制作',
+            study: '891',
+            url:'cursorContent.html'
+          },
+          {
+            course: 'HTML/CSS',
+            change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+            r1: 'HTML',
+            r2: '网页制作',
+            study: '891',
+            url:'cursorContent.html'
+          },
+          {
+            course: 'HTML/CSS',
+            change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+            r1: 'HTML',
+            r2: '网页制作',
+            study: '891',
+            url:'cursorContent.html'
+          }
+        ],
+        morecourse:[
+        {
+          course: 'jjL/CSS',
+          change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+          r1: 'HTML',
+          r2: '网页制作',
+          study: '891',
+          url:'CursorContent'
+        },
+        {
+          course: 'HTML/CSS',
+          change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+          r1: 'HTML',
+          r2: '网页制作',
+          study: '891',
+          url:'cursorContent.html'
+        }
+      ]
+      }
+    },
 		components:{
 			Slider,
       MyCursor,
       AdvancedCourse
-		}
+		},
 	}
 </script>
 <style scoped>

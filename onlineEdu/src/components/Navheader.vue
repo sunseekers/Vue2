@@ -64,6 +64,11 @@ import Router from 'vue-router'
 			hide(){
         this.isModelVisible=false;
 			}
+		},
+		watch:{
+			searchQuery(val){
+				window.$bus.$emit('filteredData',val);
+			}
 		}
 	}
 </script>

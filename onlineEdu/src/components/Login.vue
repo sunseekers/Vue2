@@ -43,7 +43,7 @@
     },
     methods:{
       hide(){
-        this.$emit('click')
+        this.$emit('click');
       },
       doregister(){
         this.isActive=!this.isActive;
