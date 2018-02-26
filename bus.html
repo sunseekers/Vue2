@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>子组件之间传递数据</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src='js/vue.min.js'></script>
+</head>
+<body>
+    <div id='app'>
+      <foo></foo>
+      <hr>
+      <bar></bar>
+    </div>
+    <script type="text/javascript">
+      //利用 eventBus 作为一个中间中转站，去实现兄弟之间的通信
+      var eventBus=new Vue({});
+      var foo={
+        template:`<button @click='addBar'>{{fooCount}}</button>`,
+        data(){
+          return {fooCount:0}
+        },
+        methods:{
+          addBar(){
+            eventBus.$emit('addBar')
+          }
+        },
+        mounted(){
+          //再次借用了eventBus
+          eventBus.$on('addFoo',function(){
+            this.fooCount++
+          }.bind(this))
+        }
+      }
+      var bar={
+        template:`<button @click='addFoo'>{{barCount}}</button>`,
+        data(){
+          return {barCount:0}
+        },
+        methods:{
+          addFoo(){
+            console.log(eventBus);
+            eventBus.$emit('addFoo')
+          }
+        },
+        mounted(){
+          eventBus.$on('addBar',function(){
+            this.barCount++
+          }.bind(this))
+        }
+      }
+      new Vue({
+        el:'#app',
+        components:{
+          foo,bar
+        }
+
+      })
+
+    </script>
+</body>
+</html>
