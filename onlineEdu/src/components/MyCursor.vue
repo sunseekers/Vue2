@@ -1,20 +1,21 @@
 <template>
   <div>
-  <div class='my-cursor'>
-    <a :href="entry.url" v-for="(entry,index) in filteredData" :key="index">
-      <div class="course1">
-        <div class='course1Img'></div>
-        <div class="intruduce">
-        <p>{{entry.course}}</p>
-          <p>{{entry.change}}</p>
-        <span>{{entry.r1}}</span>
-          <span>{{entry.r2}}</span>
-        <p>已经有<b>{{entry.study}}</b>名学生在这里学习</p>
+    <p class='empty' v-if='filteredData.length===0'>暂无该课程</p>
+    <div class='my-cursor'>
+      <a :href="entry.url" v-for="(entry,index) in filteredData" :key="index">
+        <div class="course1">
+          <div class='course1Img'></div>
+          <div class="intruduce">
+          <p>{{entry.course}}</p>
+            <p>{{entry.change}}</p>
+          <span>{{entry.r1}}</span>
+            <span>{{entry.r2}}</span>
+          <p>已经有<b>{{entry.study}}</b>名学生在这里学习</p>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
-</div>
 </template>
 <script>
   export default{
@@ -96,4 +97,13 @@
 .course1:hover{ box-shadow: 1px 1px 10px;}
 .course1:hover .intruduce p:nth-child(1){ color: #1ad1a3;}
 .course1:hover .course1Img{ background-size: 140% 140%;}
+.empty{
+  width: 620px;
+  line-height: 420px;
+  font-size: 13px;
+  color: #000;
+  text-align: center;
+  padding: 10px 0;
+  float: left;
+}
 </style>

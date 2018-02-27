@@ -1,6 +1,6 @@
 <template>
   <div class='my-cursor'>
-    <a :href="entry.url" v-for="entry in filteredData">
+    <a :href="entry.url" v-for="(entry,index) in filteredData" :key=index>
       <div class="course1">
         <div class='course1Img'></div>
         <div class="intruduce">

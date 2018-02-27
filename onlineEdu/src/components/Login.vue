@@ -12,11 +12,11 @@
         <div id='register-user'>
               <p>
                 <span><i class="icon iconfont1">&#xe675;</i></span>
-                <input type='text' placeholder='请输入账号' class='enter' v-focus />
+                <input type='text' placeholder='请输入账号' class='enter' v-focus v-model="username" />
               </p>
               <p>
                 <span><i class="icon iconfont1">&#xe618;</i></span>
-                <input type='password' placeholder='请输入密码' class='enter'/>
+                <input type='password' placeholder='请输入密码' class='enter' v-model="password"/>
               </p>
               <div class=registerUser v-if='isActive'>
                 <input type='checkbox'/>下次自动登陆
@@ -25,10 +25,10 @@
             </div>
       </div>
       <div slot='footer'>
-        <button class='dobutton' v-if='isActive'> 登陆</button>
-        <button class='dobutton' v-else> 注册</button>
+        <button class='dobutton' v-if='isActive' @click='login'> 登陆</button>
+        <button class='dobutton' v-else @click='regester'> 注册</button>
         <p class='registerUser1' v-if='isActive'>免费注册</p>
-        <p class='registerUser1' v-else>去登陆</p>
+        <p class='registerUser1' v-else >去登陆</p>
       </div>
     </model-vue>
   </div>
@@ -38,7 +38,9 @@
   export default{
     data(){
       return{
-        isActive: false
+        isActive: false,
+        username:'',
+        password:''
       }
     },
     methods:{
@@ -47,6 +49,29 @@
       },
       doregister(){
         this.isActive=!this.isActive;
+      },
+      login(){
+        this.$http.post('/login',{
+          username:this.username,
+          password:this.password
+        }).then((res)=>{
+          console.log(res.data);
+          //登录成功或者失败跳转的页面
+        }).catch((error)=> {
+          console.log(error);
+        });
+      
+      },
+      regester(){
+        this.$http.post('/regester',{
+          username:this.username,
+          password:this.password
+        }).then((res)=>{
+          console.log(res.data);
+          //注册成功或者失败
+        }).catch((error)=> {
+          console.log(error);
+        });
       }
     },
     directives: {
