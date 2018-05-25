@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>创建动态</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <style>
+    .tab-button {
+      padding: 6px 10px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      background: #f0f0f0;
+      margin-bottom: -1px;
+      margin-right: -1px;
+    }
+
+    .tab-button:hover {
+      background: #e0e0e0;
+    }
+
+    .tab-button.active {
+      background: #e0e0e0;
+    }
+
+    .tab {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+    <!-- <component> 元素加一个特殊的 is 特性可以实现组件的动态切换-->
+  <div id="dynamic-component-demo">
+    <button 
+      v-for = "(tab,index) in tabs" :key="index"
+      :class = "['tab-button',{active:currentTab === tab}]"
+      @click = "currentTab = tab">{{tab}}</button>
+      <component :is = "currentTabComponent" class = "tab"></component>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script type="text/javascript">
+    Vue.component("tab-home",{
+      template:"<div>Home component</div>"
+    })
+    Vue.component("tab-posts",{
+      template:"<div>Posts component</div>"
+    })
+    Vue.component("tab-archive",{
+      template:"<div>Archive component</div>"
+    })
+    new Vue({
+      el: "#dynamic-component-demo",
+      data:{
+        currentTab: "Home",
+        tabs: ["Home","Posts","Archive"]
+      },
+      computed: {
+        currentTabComponent(){
+          return "tab-" + this.currentTab.toLowerCase()
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
