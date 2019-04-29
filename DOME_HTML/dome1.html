@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>综合练习</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name='viewprot' content='width=device-width,minmum-scale=1.0,maxmum-scale=1.0'>
+<style type="text/css">
+div{
+	width:500px;
+	margin: 30px auto;
+}
+.edit{
+    display:block ;
+    line-height: 35px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    border-radius: 4px;
+    border:1px solid #ccc;
+    box-shadow: 0 0 5px #ccc;
+ }
+
+ .task li{
+    position: relative;
+    padding: 10px 0;
+    border-bottom: 1px solid #efefef;
+    list-style: none;
+ }
+ .task li:last-child{
+    border-bottom: 0;
+ }
+  .finish{
+    text-decoration: line-through;
+    color: #ccc;
+ }
+  .del{
+    background: red;
+    text-decoration: none;
+    position: absolute;
+    right:0;
+    font-size: 12px;
+    border: 0;
+    outline: 0;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: #fff;
+ }
+  .empty{
+    font-size: 13px;
+    color: #000;
+    text-align: center;
+    padding: 10px 0;
+ }
+</style>
+</head>
+<body>
+    <div id='app'>
+    	<p>
+    用我们学过的指令 v-model @ v-if和 methods 创建一个 Vue 实例;
+    在输入框内输入数据，按下回车键，自动添加到页面中，点击删除，删除该指令;动手试试吧
+  	</p>
+    	<input type='text' placeholder='edit something ' 
+    	class='edit' autofocus
+    	v-model='items.content' 
+    	@keydown.enter='addTask'
+    	>
+    	<ul class='task'>
+    		<li v-for='(item,index) in list' :key='index'>
+    			<input @click='changeState(index)'
+    			:checked='item.finished'
+    			type='checkbox'>
+    			<span :class="{'finish':item.finished}">{{item.content}}</span>
+    			<button @click='removeList(index)' class='del'>删除</button>
+    		</li>
+    	</ul>
+    	<p class='empty' v-if='list.length===0'>暂无内容</p>
+    </div>
+</body>
+<script type="text/javascript" src='js/vue.min.js'></script>
+<script type="text/javascript">
+	var vm=new Vue({
+		el:'#app',
+        jjjj:'oooo',
+		data:{
+			//默认数据
+			items:
+				{
+				content: '',//初始化内容为空，不能省略
+				finished: false,//未完成
+				deleted: false//未删除
+				},
+			list:[]
+		},
+		//列表
+		methods:{
+			//es6 的写法
+			addTask(){
+				//将任务存入数组
+				this.list.push(this.items);
+				//重置 items
+				this.items={
+					content: '',//初始化内容为空，不能省略
+					finished: false,//未完成
+					deleted: false//未删除
+				}
+			},
+			//选中改变状态
+			changeState(index){
+				let curState=this.list[index].finished;
+				this.list[index].finished=!curState;
+			},
+			//删除
+			removeList(index){
+				this.list.splice(index,1);
+			}
+		}
+	})
+    console.log(vm.$options.jjjj);
+</script>
+</html>

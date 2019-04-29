@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>v-for循环</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" type="text/css" href="css/cursor.css">
+<script type="text/javascript" src='js/vue.min.js'></script>
+<script type="text/javascript" src='js/vue-router.js'></script>
+
+<!--
+	1. 注册组件方法一
+	HTML 模板，通常被称为[X-Templates]相当于 template写进去的一样
+-->
+<script type="text/x-template" id='cursorInfo'>
+	<router-link :to="detail.url">
+				<div class="course1">
+					<div class='course1Img'></div>
+					<div class="intruduce">
+						<p>{{detail.course}}</p>
+						<p>{{detail.change}}</p>
+						<span>{{detail.r1}}</span>
+						<span>{{detail.r2}}</span>
+						<p>{{detail.study}}</p>
+					</div>
+				</div>
+	</router-link>
+</script>
+</head>
+<body>
+    <div id='cursor'>
+    	<my-cursor v-for="(item,index) in course" :key='index' :detail='item'>
+		</my-cursor>
+		<router-view></router-view>
+    </div>
+</body>
+<!--
+2.组件注册方法二
+const cursorInfo={
+	props:['detail'],
+	template:`<a :href="detail.url">
+				<div class="course1">
+					<div class='course1Img'></div>
+					<div class="intruduce">
+						<p>{{detail.course}}</p>
+						<p>{{detail.change}}</p>
+						<span>{{detail.r1}}</span>
+						<span>{{detail.r2}}</span>
+						<p>{{detail.study}}</p>
+					</div>
+				</div>
+	</a>`
+}
+-->
+<script type="text/javascript">
+const routes=[
+	{path:'',}
+];
+const router=new VueRouter({
+	mode: 'history',
+	routes
+});
+	var vm=new Vue({
+		el:'#cursor',
+		router,
+		data:{
+			course:[
+				{
+					index:1,
+					course: 'HTML/CSS',
+					change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+					r1: 'HTML',
+					r2: '网页制作',
+					study: '已经有891名学生在这里学习',
+					url:'swiper.html'
+				},
+				{
+					index:2,
+					course: 'HTML/CSS',
+					change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+					r1: 'HTML',
+					r2: '网页制作',
+					study: '已经有891名学生在这里学习',
+					url:'swiper.html'
+				},
+				{
+					index:3,
+					course: 'HTML/CSS',
+					change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+					r1: 'HTML',
+					r2: '网页制作',
+					study: '已经有891名学生在这里学习',
+					url:'swiper.html'
+				},
+				{
+					index:4,
+					course: 'HTML/CSS',
+					change: '精选课程，和我们一起零基础入门HTML/CSS，共发布6个课程，等你来挑战',
+					r1: 'HTML',
+					r2: '网页制作',
+					study: '已经有891名学生在这里学习',
+					url:'swiper.html'
+				}
+			]
+		},
+		//局部注册组件
+		components:{
+			//方法二： 'my-cursor':cursorInfo
+			'my-cursor':{
+				//父传子通信 props
+					props:['detail'],
+					template:'#cursorInfo'
+			}
+		}
+	})
+	console.log(vm.course[1].url);
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>mounted</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id='app' ref='app'>{{name}}</div>
+    <script type="text/javascript">
+    	new Vue({
+    		el:'#app',
+    		data:{
+    			name:'sunseekers'
+    		},
+    		//创建之前:beforeCreate
+    		beforeCreate(){
+    			console.log('即将创建');
+    			console.log(this.$data);
+    			console.log(this.$el);
+    		},
+    		//创建完毕:created()
+    		created(){
+    			console.log('即将完毕');
+    			console.log(this.$data);
+    			console.log(this.$el);
+    		},
+    		//挂载前，#el挂载到我们指定的节点:beforeMount
+    		beforeMount(){
+    			console.log('即将挂载');
+    			console.log(this.$data);
+    			console.log(this.$el);
+    		},
+    		//挂载完毕：mounted()
+    		mounted(){
+    			console.log('挂载完毕');
+    			console.log(this.$data);
+    			console.log(this.$el);
+    		},
+    		//修改vue实例的data时，vue会自动更新渲染视图，beforeUpdate
+    		beforeUpdate(){
+    			console.log('=即将更新渲染=');
+    			let name=this.$refs.app.innerHTML;
+    			console.log('name:'+name);
+    		},
+             beforeDestroy(){
+                
+               console.log('销毁之前');
+             },
+             destroyed(){
+               console.log('销毁成功');
+             }
+    	})
+    </script>
+</body>
+</html>

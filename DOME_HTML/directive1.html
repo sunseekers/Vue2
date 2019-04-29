@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>自定义指令</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+  <div id='app'>
+    <my-component v-if="message" :message="message"></my-component>
+    <button @click='updata'>更新</button>
+    <button @click='uninstall'>卸载</button>
+    <button @click='install'>安装</button>
+  </div>
+  <script type="text/javascript" src='js/vue.min.js'></script>
+  <script>
+    Vue.directive('hell',{
+      //只调用一次，指令第一次绑定到元素
+      bind(el){
+        console.log('触发 bind 钩子函数')
+      },
+      // 被绑定元素插入父节点时调用
+      inserted(el){
+        console.log('触发inserted钩子函数！')
+      },
+      // 所在组件的`VNode`及其子元素的`VNode`全部更新时调用
+      componentUpdated(el) { 
+        console.log('触发componentUpdated钩子函数！') 
+      },
+      // 所在组件的`VNode`更新时调用，但是可能发生在其子元素的`VNode`更新之前著作权归作者所有。
+      updata(el){
+        console.log('触发 updata 钩子函数')
+      },
+      // 只调用一次，指令与元素解绑时调用 
+      unbind(el) { 
+        console.log('触发unbind钩子函数！') 
+      }
+    });
+    let myComponent = { 
+      template: '<h1 v-hell>{{ message }}</h1>',
+       props: { message: String } 
+     }
+    new Vue({
+      el:'#app',
+      data:{
+        message:'Hello World Vue'
+      },
+      components:{
+        myComponent
+      },
+      methods:{
+        updata(){
+          this.message='更新 ';
+        },
+        uninstall(){
+          this.message='';
+        },
+        install(){
+          this.message='Hello World';
+        }
+
+      }
+    })
+  </script>
+</body>
+</html>

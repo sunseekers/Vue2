@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>is 特性的使用</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+</head>
+<body>
+    <div id='is'>
+    	<!--在监听键盘事件时，我们经常需要检查常见的键值。Vue 允许为 v-on 在监听键盘事件时添加按键修饰符：@keyup.enter 鼠标按下 enter 键-->
+    	<input v-model='newTodo' @keyup.enter='addNewdo' placeholder ='Add  a todo-list-example'/>
+    	<ul>
+    		<!--注意这里的 is="todo-item" 属性。这种做法在使用 DOM 模板时是十分必要的，因为在 <ul> 元素内只有 <li> 元素会被看作有效内容。这样做实现的效果与 <todo-item> 相同，但是可以避开一些潜在的浏览器解析错误。-->
+    			
+    		<!--组件名应该始终是多个单词的-->
+    		<li is='todo-item' 
+    		v-for='(todo,index) in todos' 	:key='index' 	
+				:title='todo.title' @remove='move'></li>
+    	</ul>
+    </div>
+<script type="text/javascript" src='js/vue.min.js'></script>
+<script type="text/javascript">
+	new Vue({
+		el:'#is',
+		data:{
+			newTodo:'',
+				todos: [
+			    {title:'Do the dishes' },
+			    {title: 'Take out the trash',},
+			    {title: 'Mow the lawn' }
+				]
+		},
+		/*子组件中 $emit('remove') 去触发父组件的 remove 事件*/
+		components:{
+			'todo-item':{
+				props:['title'],
+				template:`<li>
+	      {{ title }}
+	      <button @click="$emit('remove')">X</button>
+	    	</li>`
+			}
+		},
+		methods:{
+			addNewdo(){
+				/*在 vue 中访问任何数据都要在前面加 this ，否则会报错*/
+				this.todos.push({title:this.newTodo});
+				this.newTodo='';
+			},
+			move(){
+				 return this.todos.splice(this.todos.index,1);
+			}
+		}
+	})
+</script>
+</body>
+</html>

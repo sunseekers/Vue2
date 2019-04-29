@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-01-03 20:54:19
+ * @version $Id$
+ */
+	.course1{
+		width: 290px;
+		margin: 10px;
+		height: 420px;
+		border: 2px #eee solid;
+		flex: 1;
+		cursor: pointer;
+		float: left;
+		background: #fff;
+		overflow: hidden;
+	}
+	.course1Img{
+		background: url(../img/html.jpg);
+		background-size: 100% 100%;
+		width: 270px;
+		height: 230px;
+		margin: 10px;
+		background-repeat: no-repeat;
+	  background-size: cover;
+	}
+	.intruduce {
+		width: 260px;
+		margin: 0 auto;
+		color: #7f7f7f;
+		font-size: 12px;
+		line-height: 22px;
+	}
+	.intruduce p:nth-child(1){
+		color: #000;
+		font-size: 16px;
+		line-height: 26px;
+	}
+	.intruduce span{
+		background: #f0f0f0;
+		margin: 10px 0;
+		border-radius: 15px;
+		display: inline-block;
+		padding: 5px ;
+	}
+	.course1:hover{ box-shadow: 1px 1px 10px;}
+	.course1:hover .intruduce p:nth-child(1){	color: #1ad1a3;}
+	.course1:hover .course1Img{ background-size: 140% 140%;}
+	#search {
+	width: 180px;
+	height: 35px;
+	color: #666;
+	padding-left: 20px;
+	margin-top: 20px;
+	border: 1px solid #666;
+	border-radius: 20px;
+	outline: none;
+}

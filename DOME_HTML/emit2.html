@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>emit2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <div id='emit'>
+    	<span >
+    		{{date}}
+    		<data-msg></data-msg>
+    	</span>
+    </div>
+    <script type="text/javascript" src='js/vue.min.js'></script>
+    <script type="text/javascript">
+    	//准备一个空的实例对象
+    	var Event=new Vue();
+    	new Vue({
+    		el:'#emit',
+    		data:{
+    			date:'2018.01.07,我是父组件'
+    		},
+    		components:{
+    			'data-msg':{
+    				//data 必须是函数，所以 需要有返回值
+    				data(){
+    					return {msg:'我是子组件'}
+    				},
+    				template:`
+							<div><span @click='send'>{{msg}}</span></div>
+    				`,
+    				methods:{
+    				send(){
+    					//Event.$emit(事件名称，数据)；
+    						Event.$emit('msg',this.msg);
+    					}
+    				}
+    			}
+    		},
+				mounted(){
+    			//Event.$on(事件名称，function(data){}.bind(this))
+    			var self=this;
+    			Event.$on('msg',function(c){
+    				self.date=c;
+    				console.log(c);
+    			})
+    	}
+    	})
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <div id="app">{{message}}</div>
+</body>
+<script type="text/javascript" src='js/vue.min.js'></script>
+<script type="text/javascript">
+	//注册全局组件常用选项
+	Vue.component('myarticl',{
+		props:[],
+		template:``,
+		render:function(){},
+		data:function(){},
+		computed:{},
+		//组件里面插入子组件
+		components:{},
+		methods:{},
+		watch:{},
+		mounted:{},
+		filters:{}
+	})
+	// Vue 实例常用选项
+	new Vue({
+		// 1. 实例挂载目标
+		el:'#app',
+		// 2. 设置数据对象
+		data:{
+			num1: 12,
+			num2: 13.3,
+		}
+		// 3. 计算属性
+		computed:{
+			//ES6 写法
+			sum(){
+				return this.num1+this.num2
+			}
+		}
+		// 4. methods 方法
+		methods:{
+ 			plus(){
+ 				return this.num1+this.num2//
+ 			}
+		}
+		// 5.watch 观察
+		watch:{
+			num(){
+				console.log('有变化了：' this.num1);
+			}
+		}
+		// 6. 生命钩子函数
+		mounted:{
+			//挂载到实例上调用该函数
+			var _this=this;
+            //为productList添加select（是否选中）字段，初始值为true
+            this.productList.map(function (item) {
+                _this.$set(item, 'select', true);
+            })
+		}
+		// 7.自定义局部指令
+		directives:{
+			tack:{
+				inserted(el){
+					el.style.color='red'
+				}
+			},
+			focus: {
+		    // 指令的定义
+		    inserted: function (el) {
+		      el.focus()
+		    }
+  		}		
+		}
+		// 8.局部注册组件
+		components:{
+			'my-article':{
+    		props:['detail'],
+    		template:`<div>
+            <div>
+            <h1>{{detail.title}}</h1>
+            <div>
+            <span>{{detail.date}}</span>
+            <span v-show="detail.is_original">原创</span>
+            </div>
+            </div>
+            <img :src="detail.cover_url" alt="">
+            </div>`
+    	}
+		}
+		// 9.过滤器
+		filters:{
+			//ES6 写法
+			toInt(value){
+				return parseInt(value);
+			}
+		}
+	})
+</script>
+</html>

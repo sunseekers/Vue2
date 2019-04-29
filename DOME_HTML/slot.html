@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>slot</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <div id='slot'>
+    	<template-item>
+    		<!--加个 slot 属性对于 slot 的 name 属性
+    			告诉他在哪个位置使用哪个 slot-->
+    		<ul slot='ul'>
+    			<li>2018.01.17 今天是我生日</li>
+    			<li>自己祝自己生日快乐</li>
+    		</ul>
+    		<ol slot='ol'>
+    			<li>湖南的冬天好冷，刺骨的冷</li>
+    			<li>想去一个没有冬天的城市</li>
+    		</ol>
+    	</template-item>
+    </div>
+     <script type="text/javascript" src='js/vue.min.js'></script>
+     <script type="text/javascript">
+     	new Vue({
+     		el:'#slot',
+     		data:{
+
+     		},
+     		components:{
+     			'template-item':{
+     				template:`<div>
+     				<h1>sunseekers(晴窗一扇)</h1>
+     				<p>一旦出发，必须到达</p>
+     				<slot name='ol'></slot>
+     				<slot name='ul'></slot>
+     				</div>
+     				`
+     			}
+     		}
+     	})
+     </script>
+</body>
+</html>

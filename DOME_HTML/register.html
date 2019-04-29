@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>注册登陆页面</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+p,input{margin: 0;padding:0;}
+#regester{
+	position: fixed;
+  z-index: 9998;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.page {
+	width:300px;
+	height: 350px;
+	background: #fff;
+	z-index: 9999;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+.vtc{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform:translate3d(-50%,-50%,0);
+	-webkit-transform:translate3d(-50%,-50%,0);
+}
+.lf{  float: left;}
+.rg{ float: right; }
+@font-face {font-family: "iconfont";
+  src: url('font/iconfont.eot'); /* IE9*/
+  src: url('font/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('font/iconfont.woff') format('woff'), /* chrome, firefox */
+  url('font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+ .iconfont {
+  font-family:"iconfont" !important;
+  font-size:25px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.x{
+	width: 100%;
+	height: 30px;
+	font-size: 20px;
+	color: #eee;
+	text-align: right;
+}
+
+.labelspan{
+	width: 150px;
+	line-height: 30px;
+	font-size: 20px;
+	justify-content: center;
+	display: flex;
+	color: #666;
+
+}
+#register-user p{
+height: 40px;
+border-radius: 5px;
+border: 1px #eee solid;
+margin: 20px 0;
+}
+#register-user p span{
+  line-height: 37px;
+  width: 40px;
+  text-align: center;
+  background: #eee;
+  display: inline-block;
+
+}
+.enter{
+	width: 240px;
+	border: none;
+	padding-left: 10px;
+	line-height: 30px;
+	font-size: 14px;
+	outline: none;
+}
+.registerUser{ 
+	font-size: 12px;
+	padding: 15px;
+}
+.dobutton{
+	width: 300px;
+	line-height: 38px;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	background: #00cc99;
+	outline: none;
+	border: none;
+	margin-top: 10px ;
+	cursor: pointer;
+}
+.active{ border-bottom: 2px #00cc99 solid; }
+</style>
+</head>
+<body>
+		<div class="vtc" id='regester'>
+				<div class='page vtc'>
+					<p class='x' @click='show'>X</p>
+					<form action='index.html' method='get'>
+						<span class='lf labelspan doregister' :class='{active:isActive}' @click='doregister'>登陆</span>
+						<span class=' labelspan dologin' :class='{active:!isActive}' @click='doregister'>注册</span>
+						<div id='register-user'>
+							<!--高度复用了 input 元素，用 key 管理可复用的元素-->
+							<p>
+								<span><i class="icon iconfont">&#xe675;</i></span>
+								<input type='text' placeholder='请输入账号' class='enter' autofocus/>
+							</p>
+							<p>
+								<span><i class="icon iconfont">&#xe618;</i></span>
+								<input type='password' placeholder='请输入密码' class='enter'/>
+							</p>
+							<div class=registerUser v-if='isActive'>
+								<input type='checkbox'/>下次自动登陆
+								<span class='rg'>忘记密码?</span>
+							</div>
+							<button class='dobutton' v-if='isActive'> 登陆</button>
+							<button class='dobutton' v-else> 注册</button>
+							<span class='registerUser rg' v-if='isActive'>免费注册</span>
+							<span class='registerUser rg' v-else>去登陆</span>
+						</div>
+					</form>
+				</div>
+		</div>
+		<script type="text/javascript" src='js/vue.min.js'></script>
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el:'#regester',
+				data:{
+					isActive: false
+				},
+				methods:{
+					show(){
+						$('#regester').hide();
+					},
+					doregister(){
+						this.isActive=!this.isActive;
+					}
+				}
+			})
+		</script>
+</body>
+</html>

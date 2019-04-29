@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>给路由定义名字</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <h1>Named Views</h1>
+    <ul>
+      <li>
+        <router-link to="/">/</router-link>
+      </li>
+      <li>
+        <router-link to="/other">/other</router-link>
+      </li>
+    </ul>
+    <router-view></router-view>
+    <router-view name="a"></router-view>
+    <router-view name="b"></router-view>
+  </div>
+  <script type="text/javascript" src='js/vue.min.js'></script>
+  <script type="text/javascript" src='js/vue-router.js'></script>
+  <script type="text/javascript">
+    const Foo = { template: '<div>11111</div>' }
+    const Bar = { template: '<div>22222</div>' }
+    const Baz = { template: '<div>33333</div>' }
+
+    const router = new VueRouter({
+      routes: [
+        { path: '/',
+          components: {
+            default: Foo,
+            a: Bar,
+            b: Baz
+          }
+        },
+        {
+          path: '/other',
+          components: {
+            default: Baz,
+            a: Bar,
+            b: Foo
+          }
+        },
+        {
+          path:'*',redirect:'/'
+        }
+      ]
+    })
+    new Vue({
+      router,
+      el: '#app'
+    })
+  </script>
+</body>
+</html>

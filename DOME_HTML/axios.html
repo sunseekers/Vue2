@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>axios 获取数据</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+    	<button @click='get'>按钮</button>
+    	<span> {{msg}}</span>
+    </div>
+    <script type="text/javascript" src='js/vue.min.js'></script>
+    <script type="text/javascript" src='js/axios.min.js'></script>
+    <script type="text/javascript">
+        //没有后台数据，所以会报错
+    	new Vue({
+    		el:'#app',
+    		data:{
+    			msg:'我是数据'
+    		},
+    		methods:{
+    			
+    			get(){
+    				axios('is.html').then(function(res){
+
+    					this.msg=res.data;
+    				}.bind(this)).catch(function(err){
+    					console.log(err);
+    				})
+    			}
+    		}
+
+    	})
+    </script>
+</body>
+</html>
