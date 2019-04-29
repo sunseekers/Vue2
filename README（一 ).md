@@ -1,5 +1,5 @@
 <h1 style='color:rgb(230,3,135);'>2018 我所了解的 Vue 知识大全 （二）</h1>
-<img src='img/vuex3.png'/>
+<img src='./DOME_HTML/img/vuex3.png'/>
 <i>在前面的一篇文章中 vue 还漏掉了几个特殊的特性，现在把它补全。然后再补充一些关于 vue-cli ，vue-loader，vuex，axios 的简单知识； vue-router 的相关知识我准备在另外写一篇文章。以防文章太长，留点空白，哈哈哈哈</i>
 
 去年 12 月份开始接触 vue ，到现在我发现真的要多练习，对于语法和 API 的了解才更加深刻，结合小 demo 看，所有的东西都变得通俗易懂啦。请相信，**语言只是一种工具，核心依旧是编程思想**，所以学习并不难
@@ -12,13 +12,13 @@
 <h3 style='color:rgb(230,3,135);'> Key </h3>
 <i>Vue 为了尽可能高效地渲染元素，通常会重复利用已有元素而不是从头开始渲染。这么做的目的是 Vue 变得非常快</i>
 
-<img src='img/is.gif'/>
+<img src='./DOME_HTML/img/is.gif'/>
 
 当我们在登录框输入内容之后，在切换到注册框的时候，发现账号和密码依然存在。不用重新输入，这就很好的的解释了 vue 是如何复用已有的元素的；
 
 <i>被复用的组件实例,意味着组件的生命周期钩子不会再被调用。 我们可以用 watch（监测变化）来对响应做出变化</i>
 
-[查看源码](https://github.com/sunseekers/Vue/blob/master/register.html)
+[查看源码](https://github.com/sunseekers/Vue/blob/master/DOME_HTML/register.html)
 
 如果我们不想复用已有的元素，即切换到注册的时候，清空账号和密码，那 <b> key </b>就派上用场了，在标签内加入 key="username-input" 和 key="username-password" ,就清除复用了，此时 Vue 元素就是重头开始渲染
 
@@ -53,11 +53,11 @@ v-show : 相当于 css 属性的 display ；适合频繁的切换
 ```
 <img src='./DOME_HTML/img/is.png'/>
 
-[查看源码](https://github.com/sunseekers/Vue/blob/master/is.html)
+[查看源码](https://github.com/sunseekers/Vue/blob/master/DOME_HTML/is.html)
 
 自定义组件中父组件通过 props 属性将数据传递给子组件，反过来子组件通过 $emit( event, […args] )把数据发送到父组件，进而进行修改父组件的数据
 
-[查看源码](https://github.com/sunseekers/Vue/blob/master/emit.html)
+[查看源码](https://github.com/sunseekers/Vue/blob/master/DOME_HTML/emit.html)
 
 javaScript 中事件对象用 event ，vue 中事件对象用 $event
 
@@ -76,7 +76,7 @@ transition 组件
 <h3 style='color:rgb(230,3,135);'> slot 插槽</h3>
 slot: 作用就是占个位置；
 
-<img src='img/slot.png'/>
+<img src='./DOME_HTML/img/slot.png'/>
 
 有时候我们会遇到这样的情况？组件自身定义的会被 template 替换掉！！！可是我并不想它被替换掉，那要如何解决？？？？
 
@@ -84,14 +84,14 @@ slot: 作用就是占个位置；
 
 我们只需要在 template 里面加个 slot 标签占个位置就好了
 
-<img src='img/slot1.png'/>
+<img src='./DOME_HTML/img/slot1.png'/>
 
-[源码地址](https://github.com/sunseekers/Vue/blob/master/slot.html)
+[源码地址](https://github.com/sunseekers/Vue/blob/master/DOME_HTML/slot.html)
 
 <h2 style='color:rgb(230,3,135);'> axios </h2>
 在 vue2.0 中官方推荐使用 axios 做数据交互；不在推荐使用以前的 vue-resourse ；其实做交互她们本质上是一样的 vue-resourse 怎么用， axios 也可以那样用；
 
-<img src='img/axios.gif'/>
+<img src='./DOME_HTML/img/axios.gif'/>
 
 上面我采用的是 vue-cli 手脚架搭的； 用 axios 实现数据交互
 [详情请参考axios](https://github.com/axios/axios)
@@ -157,7 +157,7 @@ static放不会变动的文件 assets放可能会变动的文件。
 
 *注意: vue-cli 是基于 webpack 构建， 如果你知道 webpack 这就很简单了，如果你不懂，这也不难；vue-loader 能够解析 后缀名 .vue ; 而用 vue-cli 的时候我们使用比较多的后缀名 .vue；以后缀名  .vue 结尾的表示一个组件，其中采用了 ES6语法* 
 
-<img src='img/vue-loader.png'/>
+<img src='./DOME_HTML/img/vue-loader.png'/>
 
 上面是我写的一个小demo，其中引入了 <b>饿了么写的 ElementUI 组件</b>，和在一个组件里面引用了另一个组件然后在渲染到页面中去
 
@@ -175,7 +175,7 @@ vuex 是什么？
 
 我的理解就是集中管理数据；一个可以观看 vue 每一次状态变化的东西，和 git 仓库有那么一点点类似；不直接改变 store 的状态，而是要通过 commit 显示的提交到 mutation
 
-<img src='img/vuex1.png'/>
+<img src='./DOME_HTML/img/vuex1.png'/>
 
 vuex 提供两个特别有用的方法
 
@@ -193,7 +193,7 @@ vuex 提供两个特别有用的方法
  
 看起来，说起来，好像有点枯燥，不是特别能够理解，看看图和代码，结合 源码，然后自己在试着修改，添加一些东西，应该就好懂了；
  
-<img src='img/vuex2.png'/>
+<img src='./DOME_HTML/img/vuex2.png'/>
  
  [代码地址](https://github.com/sunseekers/Vue/tree/master/online/vuexsrc/src)
  

@@ -21,12 +21,12 @@ Vue ，React ，Angular 三大主流框架，最后我选择学习 Vue ，接触
 <i>下面是我用 指令 写的一个小案例，刚好所有的指令都派上了用场</i>
 <img src='img/for.gif'/>
 
-[详细请看 demo 源码](https://github.com/sunseekers/Vue/blob/master/dome1.html)
+[详细请看 demo 源码](https://github.com/sunseekers/Vue/blob/master/DOME_HTML/dome1.html)
 
 <b> 自定义指令</b>
 <img src='img/directive.png'/>
 
-[查看代码源](https://github.com/sunseekers/Vue/blob/master/directive.html)
+[查看代码源](https://github.com/sunseekers/Vue/blob/master/DOME_HTML/directive.html)
 
 <img src='img/7.png'/>
 <p> Vue API</p>
@@ -42,7 +42,7 @@ Vue ，React ，Angular 三大主流框架，最后我选择学习 Vue ，接触
 
 在QQ群里看到一张生命周期图，我觉得写的特别好,感谢总结这张图的朋友
 <img src='img/5.png'/>
-配合着实例代码效果更佳[查看代码源](https://github.com/sunseekers/Vue/blob/master/mounted.html)
+配合着实例代码效果更佳[查看代码源](https://github.com/sunseekers/Vue/blob/master/DOME_HTML/mounted.html)
 <img src='img/4.png'/>
 生命周期钩子的函数简单说就是八个函数
 <img src='img/mounted.png'/>
