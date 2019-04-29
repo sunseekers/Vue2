@@ -51,7 +51,7 @@ v-show : 相当于 css 属性的 display ；适合频繁的切换
 </table>
 //自定义组件 <my-row> 为有效的内容
 ```
-<img src='img/is.png'/>
+<img src='./DOME_HTML/img/is.png'/>
 
 [查看源码](https://github.com/sunseekers/Vue/blob/master/is.html)
 

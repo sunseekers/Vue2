@@ -2,7 +2,7 @@
 <i>年初第一个 flag 就是掌握 vue ，哈哈</i>
 
 Vue ，React ，Angular 三大主流框架，最后我选择学习 Vue ，接触过 React ，自己感觉学习曲线有些陡峭，相比较之下我个人觉得 Vue 的学习曲线平稳很多，进而进一步学习；不管选择什么框架，除了对基础的知识有一定的了解掌握，还应该对 ES6 有一定的了解；
-<img src='img/API.png'/>
+<img src='./DOME_HTML/img/API.png'/>
 
 这就是我脑海中的 Vue 知识体系；
 
