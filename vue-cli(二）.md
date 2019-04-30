@@ -7,7 +7,7 @@
 ## 为什么要使用 `vue cli 3.0` 搭建项目？
 
 为了更好的开发体验，提高开发效率，更好的了解项目。
-之前写过一篇 [`vue cli 3.0 迁移项目（上`](https://github.com/sunseekers/Vue/blob/master/vue-cli(%E4%B8%80%EF%BC%89.md) 的文章，比较了相关的性能，和配置文件。
+之前写过一篇 [`vue cli 3.0 迁移项目（上)`](https://github.com/sunseekers/Vue/blob/master/vue-cli(%E4%B8%80%EF%BC%89.md) 的文章，比较了相关的性能，和配置文件。
 这次讲讲项目迁移的具体操作
 
 ## 老项目是  `vue cli 2.0`， 如何转到 `vue cli 3.0` 有没有风险？
