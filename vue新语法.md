@@ -39,8 +39,10 @@
 
 当我们在自定义组件上面使用 `v-model` 的时候，会像子组件传递一个 `value` 字段，同时触发一个 `@input=“$emit(‘input’,$event.target.value)`。
 ![](./img/v-model.png)
-如果要求自定义的父组件组件变化的时候子组件也跟着变化，我们用 `watch`  ，加一段代码
-`watch: {
+
+如果需求要求自定义组件为空的时候，要求子组件也要变化为空，我们用 `watch`  实时监听，当传入的值是空的时候，子组件也是空
+```
+watch: {
   'value' (val) {
     if (!val) {
       this.form.deliveryBatch = ''
@@ -48,9 +50,15 @@
       this.form.deliveryBatch = val
     }
   }
-}`
+}
+```
 
 如果我们不使用 `v-model` 也是可以的，那我们就要借助 `this.$refs` 引用到子组件
+
+![](./img/013.png)
+
+两个对比发现使用 `v-model` 代码量相对而言要精简很多，`this.$refs` 有一个缺陷就是初始渲染的时候访问不到他，他是作为渲染结果被创建的
+
 
 ## 传递入静态或者动态 `prop`
    1.传入布尔值
