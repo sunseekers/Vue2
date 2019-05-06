@@ -69,3 +69,53 @@ watch: {
 		`<blog-post v-bind:is-published="false"></blog-post>`
 	
    2.在 `javascript` 中，对象和数组是通过引入传入的，所以对于一个数组或者对象类型的 `prop` 来说，在子组件中改变这个对象或数组本身将会影响到父组件。我们为了避免这种情况，通常是深拷贝一个数组或者对象，传递给子组件
+
+## vuex 表单处理
+在严格模式中使用 `vuex` 的 `v-model` 会比较棘手，因为数据的改变要通过 `commit` 提交到 `mutations`。而 `v-model` 是没有通过 `mutation` 就就修改了数据；在严格模式中，由于这个修改不是在 `mutation` 函数中执行的, 这里会抛出一个错误。
+所以我们可以使用 `vuex` 的思维去解决这个问题，给<input>中绑定value，然后监听input或者change事件，在事件回调中调用action
+```
+<input :value='message' @input='updataMessage'>
+//
+computed:{
+    ...mapState({
+    message:state=>state.message
+    })
+}
+methods:{ 
+    updateMessage(e){
+        this.$store.commit('updateMessage',e.target.value)
+    }
+}
+//mutation 函数
+mutations:{
+    updateMessage(state,message){
+    state.message = message
+    }
+}
+```
+
+```
+<input v-model='message'/>
+computed:{
+    message:{
+      get(){
+        return this.$store.state.message
+      }
+      set(value){
+        this.$store.dispatch('updateMessage',value)
+      }
+    }
+}
+mutations:{
+   UPDATE_MESSAGE(state,v){ 
+    state.message = v
+   }
+}
+actions:{
+    update_message({commit},v){
+        commit('UPDATE_MESSAGE', v);
+    }
+}
+```
+
+
