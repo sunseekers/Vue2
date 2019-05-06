@@ -60,6 +60,10 @@
 问题： 我们是通过 `pm2 start process.json` 命令启动项目的。
 
 ![](./img/010.png)
+因为 `pm2` 运行的是打包之后的一堆 `js` 文件，所以是没有办法读取到打包之前的环境变量。这个问题可难道我了，想着 `pm2` 启动项目可以传入参数，那我是不是
+可以通过传入参数给他去添加类似于环境变量的字符串。抱着是马当活马医试一试，结果成功了，笑死我了，开心的像个孩子
+
+![](./img/014.png)
 
 解决问题之后才发现原来这么简单，以后通过 `pm2 start process.json --env prodution` `pm2 start process.json --env hd` ...就切换环境了。一次打包就够了，解决了多次打包的问题。
 ，因为之前小项目的环境变量是写死的，没有通过环境变量去读取，所以没有遇到问题。
@@ -74,7 +78,8 @@
 `assets` 目录中的文件会被 `webpack` 处理解析为模块依赖，只支持相对路径形式。例如，在 `<img src="./logo.png">` 和 `background: url(./logo.png)` 中，`"./logo.png"` 是相对的资源路径，将由 `Webpack` 解析为模块依赖。
 `static/` 目录下的文件并不会被 `Webpack` 处理：它们会直接被复制到最终的打包目录（默认是 `dist/static` ）下。必须使用绝对路径引用这些文件，这是通过在 `config.js` 文件中的 `build.assetsPublicPath` 和 `build.assetsSubDirectory` 连接来确定的。
 
-简单说就是如果在项目中引入 `static/` 里面的文件通过 `require()` 进行引入。例如 `require('../../../../static/img/ditu.jpg')`
+简单说就是如果在项目中引入 `static/` 里面的文件通过 `require()` 进行引入。例如 `require('../../../../static/img/ditu.jpg')` 或者直接把 `static` 文件放到 `public` 地下。因为之前版本打包的时候 `static` 里面的文件是不会打包进去的。
+升级之后的版本 `pubilc` 里面的文件是不会打包的。简单粗暴的解决就是 `static` 引入有问题，那我就 不打包 `static` 。哈哈，如果你们有更好的方法可以拿出来一起讨论呀
 
 关于 `vue cli 3.0` 构建项目，或者迁移项目，最终还是要在是实际的项目开发中体验。每一个项目的实际情况都不一样，能去解决复杂的实际情况，才是关键所在。
 
