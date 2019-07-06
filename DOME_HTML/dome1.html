@@ -66,7 +66,7 @@
         用我们学过的指令 v-model @ v-if和 methods 创建一个 Vue 实例;
         在输入框内输入数据，按下回车键，自动添加到页面中，点击删除，删除该指令;动手试试吧
     </p>
-    <input type='text' placeholder='edit something '
+    <input :placeholder='textinit' type='text'
            class='edit' autofocus
            v-model='items.content'
            @keydown.enter='addTask'
@@ -94,6 +94,7 @@
         delete: true,
         data: {
             //默认数据
+            textinit: 'edit something',
             items:
                 {
                     content: '',//初始化内容为空，不能省略
@@ -107,7 +108,11 @@
             //es6 的写法
             addTask() {
                 //将任务存入数组
-                this.list.push(this.items);
+                if (this.items.content != '') {
+                    this.list.push(this.items);
+                } else {
+                    this.textinit = "不能为空"
+                }
                 let items = this.list;
                 this.items = {
                     content: '',//初始化内容为空，不能省略
