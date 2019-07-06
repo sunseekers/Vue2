@@ -75,13 +75,13 @@
         <button @click="removeAllList()">全删</button>
         <button @click="removeManyList()">多选删除</button>
         <button @click="removeInvertList()">反选</button>
-        <button @click='removeListCheck()' class='del'>删除选中项</button>
+        <button @click='removeListCheck()'>删除选中项</button>
         <li v-for='(item,index) in list' :key='index'>
             <input @click='changeState(index)'
                    :checked='item.finished'
                    type='checkbox'>
             <span :class="{'finish':item.finished}">{{item.content}}</span>
-            <button @click='removeList(index)' class='del'>删除</button>
+            <button @click='removeList(index)' class="del">删除</button>
         </li>
     </ul>
     <p class='empty' v-if='list.length===0'>暂无内容</p>
@@ -94,7 +94,7 @@
         delete: true,
         data: {
             //默认数据
-            textinit: 'edit something',
+            textinit: '请输入内容',
             items:
                 {
                     content: '',//初始化内容为空，不能省略
@@ -110,6 +110,7 @@
                 //将任务存入数组
                 if (this.items.content != '') {
                     this.list.push(this.items);
+                    this.textinit = "edit something"
                 } else {
                     this.textinit = "不能为空"
                 }
